@@ -2,7 +2,7 @@ name: Cloudflare Gateway Adblock Updater
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Runs every 3 hours
+    - cron: '0 */6 * * *'  # Runs every 3 hours
   workflow_dispatch:     # Allows manual runs
 
 jobs:
@@ -40,5 +40,5 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CHECK_VERSIONS: 'true'
-          FRESH_START: 'true'
+          FRESH_START: 'false'
         run: python update_gateway.py
